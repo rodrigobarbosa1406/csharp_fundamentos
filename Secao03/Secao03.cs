@@ -65,6 +65,19 @@ namespace Secao03 {
 
                         Console.WriteLine();
                     }
+                    else if (aula == 33)
+                    {
+                        Console.Write("Qual exercício você quer executar? ");
+                        int exercicio = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+
+                        if (exercicio == 1)
+                            aula33Exercicio01();
+                        else if (exercicio == 2)
+                            aula33Exercicio02();
+                        else if (exercicio == 3)
+                            aula33Exercicio03();
+                    }
                     else
                     {
                         Console.Write("Aula inválida! ");
@@ -392,6 +405,94 @@ namespace Secao03 {
                 Console.Write("Isento");
             else
                 Console.Write($"R$ {valorImposto.ToString("F2", CultureInfo.InvariantCulture)}");
+        }
+
+        private static void aula33Exercicio01()
+        {
+            Console.Write("Informe a senha: ");
+            int senha = int.Parse(Console.ReadLine());
+
+            while (senha != 2002){
+                Console.WriteLine("Senha Inválida");
+                Console.WriteLine();
+
+                Console.Write("Informe a senha: ");
+                senha = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Acesso Permitido");
+        }
+
+        private static void aula33Exercicio02()
+        {
+            Console.Write("Informe o valor de X: ");
+            int X = int.Parse(Console.ReadLine());
+
+            Console.Write("Informe o valor de Y: ");
+            int Y = int.Parse(Console.ReadLine());
+
+            while (X != 0 && Y != 0)
+            {
+                if (X > 0 && Y > 0)
+                    Console.WriteLine("Primeiro");
+                else if (X < 0 && Y > 0)
+                    Console.WriteLine("Segundo");
+                else if (X < 0 && Y < 0)
+                    Console.WriteLine("Terceiro");
+                else if (X > 0 && Y < 0)
+                    Console.WriteLine("Quarto");
+
+                Console.WriteLine();
+
+                Console.Write("Informe o valor de X: ");
+                X = int.Parse(Console.ReadLine());
+
+                Console.Write("Informe o valor de Y: ");
+                Y = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Programa encerrado...");
+            Console.WriteLine();
+        }
+
+        private static void aula33Exercicio03()
+        {
+            Console.Write("Informe o código do produto: ");
+            int codigo = int.Parse(Console.ReadLine());
+
+            int qtdeAlcool = 0;
+            int qtdeGasolina = 0;
+            int qtdeDiesel = 0;
+
+            while (codigo != 4)
+            {
+                if (codigo == 1 || codigo == 2 || codigo == 3)
+                {
+                    if (codigo == 1)
+                        qtdeAlcool += 1;
+                    else if (codigo == 2)
+                        qtdeGasolina += 1;
+                    else if (codigo == 3)
+                        qtdeDiesel += 1;
+                }
+                else 
+                { 
+                    Console.WriteLine("Código inválido...");
+                }
+
+                Console.WriteLine();
+
+                Console.Write("Informe o código do produto: ");
+                codigo = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("MUITO OBRIGADO!");
+            Console.WriteLine("Álcool: " + qtdeAlcool);
+            Console.WriteLine("Gasolina: " + qtdeGasolina);
+            Console.WriteLine("Diesel: " + qtdeDiesel);
+            Console.WriteLine();
         }
     }
 }
