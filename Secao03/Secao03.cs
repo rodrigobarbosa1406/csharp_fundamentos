@@ -78,6 +78,27 @@ namespace Secao03 {
                         else if (exercicio == 3)
                             aula33Exercicio03();
                     }
+                    else if (aula == 35)
+                    {
+                        Console.Write("Qual exercício você quer executar? ");
+                        int exercicio = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+
+                        if (exercicio == 1)
+                            aula35Exercicio01();
+                        else if (exercicio == 2)
+                            aula35Exercicio02();
+                        else if (exercicio == 3)
+                            aula35Exercicio03();
+                        else if (exercicio == 4)
+                            aula35Exercicio04();
+                        else if (exercicio == 5)
+                            aula35Exercicio05();
+                        else if (exercicio == 6)
+                            aula35Exercicio06();
+                        else if (exercicio == 7)
+                            aula35Exercicio07();
+                    }
                     else
                     {
                         Console.Write("Aula inválida! ");
@@ -470,11 +491,11 @@ namespace Secao03 {
                 if (codigo == 1 || codigo == 2 || codigo == 3)
                 {
                     if (codigo == 1)
-                        qtdeAlcool += 1;
+                        qtdeAlcool++;
                     else if (codigo == 2)
-                        qtdeGasolina += 1;
+                        qtdeGasolina++;
                     else if (codigo == 3)
-                        qtdeDiesel += 1;
+                        qtdeDiesel++;
                 }
                 else 
                 { 
@@ -493,6 +514,156 @@ namespace Secao03 {
             Console.WriteLine("Gasolina: " + qtdeGasolina);
             Console.WriteLine("Diesel: " + qtdeDiesel);
             Console.WriteLine();
+        }
+
+        private static void aula35Exercicio01()
+        {
+            Console.Write("Informe um número inteiro: ");
+            int X = int.Parse(Console.ReadLine());
+
+            for (int i=0; i<=X; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        private static void aula35Exercicio02()
+        {
+            Console.Write("Quantos número inteiros deseja informar? ");
+            int X = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            int qtdeIn = 0;
+            int qtdeOut = 0;
+
+            for (int i = 1; i <= X; i++)
+            {
+                Console.Write("Informe o " + i + "º número: ");
+                int valor = int.Parse(Console.ReadLine());
+
+                if (valor >= 10 && valor <= 20)
+                {
+                    qtdeIn++;
+                } else
+                {
+                    qtdeOut++;
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("In: " + qtdeIn);
+            Console.WriteLine("Out: " + qtdeOut);
+        }
+
+        private static void aula35Exercicio03()
+        {
+            Console.Write("Informe a quantidade de casos de teste: ");
+            int X = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            for (int i = 1; i <= X; i++)
+            {
+                Console.WriteLine(i + "º CASO DE TESTE");
+                Console.Write("Informe três valores separados por espaço: ");
+                string[] casoTeste = Console.ReadLine().Split(' ');
+                double valor1 = double.Parse(casoTeste[0], CultureInfo.InvariantCulture);
+                double valor2 = double.Parse(casoTeste[1], CultureInfo.InvariantCulture);
+                double valor3 = double.Parse(casoTeste[2], CultureInfo.InvariantCulture);
+
+                double mediaPonderada = ((valor1 * 2.0) + (valor2 * 3.0) + (valor3 * 5.0)) / (2.0 + 3.0 + 5.0); ;
+
+                Console.WriteLine($"Média ponderada do {i}º caso de teste: {mediaPonderada.ToString("F1", CultureInfo.InvariantCulture)}");
+                Console.WriteLine();
+            }
+        }
+
+        private static void aula35Exercicio04()
+        {
+            Console.Write("Qual a quantidade de pares deseja informar? ");
+            int N = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            for (int i = 1; i <= N; i++)
+            {
+                Console.WriteLine(i + "º PAR");
+                Console.Write("Informe dois valores separados por espaço: ");
+                string[] par = Console.ReadLine().Split(' ');
+                double valor1 = double.Parse(par[0], CultureInfo.InvariantCulture);
+                double valor2 = double.Parse(par[1], CultureInfo.InvariantCulture);
+
+                if (valor2 == 0.0) 
+                {
+                    Console.WriteLine("Divisão impossível");
+                }
+                else
+                {
+                    double divisao = valor1 / valor2;
+                    Console.WriteLine($"{divisao.ToString("F1", CultureInfo.InvariantCulture)}");
+                }
+                
+                Console.WriteLine();
+            }
+        }
+
+        private static void aula35Exercicio05()
+        {
+            Console.Write("Informe o número fatorial: ");
+            int N = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            int fatorial = 0;
+            int acumulado = 1;
+
+            if (N == 0)
+            {
+                fatorial = 1;
+            }
+            else
+            {
+                fatorial = N;
+
+                for (int i = 1; i < N; i++)
+                {
+                    fatorial = fatorial * (N - i);
+                }
+
+                fatorial = fatorial * 1;
+            }
+
+            Console.WriteLine("Resultado: " + fatorial);
+        }
+
+        private static void aula35Exercicio06()
+        {
+            Console.Write("Informe um número inteiro para calcular seus divisores: ");
+            int N = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            for (int i = 1; i <= N; i++)
+            {
+                if (N % i == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        private static void aula35Exercicio07()
+        {
+            Console.Write("Informe um número inteiro: ");
+            int N = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            for (int i = 1; i <= N; i++)
+            {
+                int quadrado = i * i;
+                int cubo = i * i * i;
+
+                Console.WriteLine(i + " " + quadrado + " " + cubo);
+            }
         }
     }
 }
